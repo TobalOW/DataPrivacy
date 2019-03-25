@@ -1,0 +1,24 @@
+attributes:
+  - content
+  - foreign_keys
+  - inheritances
+  - primary_keys
+  - timestamps
+disconnected: true
+filename: erd
+filetype: png
+indirect: true
+inheritance: true
+markup: true
+notation: simple
+orientation: horizontal
+polymorphism: false
+sort: false
+warn: true
+title: Modelo - Almacenear
+exclude: null
+only: null
+only_recursion_depth: null
+prepend_primary: true
+cluster: false
+splines: spline
