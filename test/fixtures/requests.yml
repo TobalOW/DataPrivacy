@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  verb_http: MyString
+  headers: MyString
+  host: MyString
+  uri: MyString
+  response_body: MyString
+  response_headers: MyString
+
+two:
+  url: MyString
+  verb_http: MyString
+  headers: MyString
+  host: MyString
+  uri: MyString
+  response_body: MyString
+  response_headers: MyString

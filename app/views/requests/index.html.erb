@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Verb http</th>
+      <th>Headers</th>
+      <th>Host</th>
+      <th>Uri</th>
+      <th>Response body</th>
+      <th>Response headers</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.url %></td>
+        <td><%= request.verb_http %></td>
+        <td><%= request.headers %></td>
+        <td><%= request.host %></td>
+        <td><%= request.uri %></td>
+        <td><%= request.response_body %></td>
+        <td><%= request.response_headers %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request', new_request_path %>

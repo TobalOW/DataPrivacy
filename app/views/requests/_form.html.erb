@@ -1,0 +1,52 @@
+<%= form_with(model: request, local: true) do |form| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :verb_http %>
+    <%= form.text_field :verb_http %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headers %>
+    <%= form.text_field :headers %>
+  </div>
+
+  <div class="field">
+    <%= form.label :host %>
+    <%= form.text_field :host %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uri %>
+    <%= form.text_field :uri %>
+  </div>
+
+  <div class="field">
+    <%= form.label :response_body %>
+    <%= form.text_field :response_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :response_headers %>
+    <%= form.text_field :response_headers %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

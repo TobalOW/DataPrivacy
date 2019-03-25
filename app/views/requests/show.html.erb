@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @request.url %>
+</p>
+
+<p>
+  <strong>Verb http:</strong>
+  <%= @request.verb_http %>
+</p>
+
+<p>
+  <strong>Headers:</strong>
+  <%= @request.headers %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @request.host %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @request.uri %>
+</p>
+
+<p>
+  <strong>Response body:</strong>
+  <%= @request.response_body %>
+</p>
+
+<p>
+  <strong>Response headers:</strong>
+  <%= @request.response_headers %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
