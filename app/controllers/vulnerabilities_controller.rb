@@ -1,4 +1,5 @@
 class VulnerabilitiesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_vulnerability, only: [:show, :edit, :update, :destroy]
 
   # GET /vulnerabilities

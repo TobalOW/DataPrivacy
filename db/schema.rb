@@ -10,12 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_180002) do
+ActiveRecord::Schema.define(version: 2019_03_25_183546) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "brief_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "data", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inputs", force: :cascade do |t|
+    t.string "additional_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "outputs", force: :cascade do |t|
+    t.string "additional_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "url"
+    t.string "verb_http"
+    t.string "headers"
+    t.string "host"
+    t.string "uri"
+    t.string "response_body"
+    t.string "response_headers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +60,12 @@ ActiveRecord::Schema.define(version: 2019_03_25_180002) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vulnerabilities", force: :cascade do |t|
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
