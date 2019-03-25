@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :vulnerabilities
+  resources :outputs
+  resources :inputs
   resources :requests
   resources :data
   root :to => 'dashboard#index'
