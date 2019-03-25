@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :data
   root :to => 'dashboard#index'
   resources :categories
   devise_for :users
