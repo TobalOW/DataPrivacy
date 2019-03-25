@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :inputs
   resources :requests
   resources :data
-  root :to => 'dashboard#index'
+  root :to => 'vulnerabilities#index'
   resources :categories
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

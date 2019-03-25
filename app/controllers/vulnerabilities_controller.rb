@@ -5,7 +5,11 @@ class VulnerabilitiesController < ApplicationController
   # GET /vulnerabilities
   # GET /vulnerabilities.json
   def index
-    @vulnerabilities = Vulnerability.all
+    if user_signed_in?
+      @vulnerabilities = Vulnerability.all
+    else
+      redirect_to new_user_session_url
+    end
   end
 
   # GET /vulnerabilities/1
