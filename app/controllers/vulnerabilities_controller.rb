@@ -29,7 +29,7 @@ class VulnerabilitiesController < ApplicationController
   # POST /vulnerabilities
   # POST /vulnerabilities.json
   def create
-    @vulnerability = Vulnerability.new(vulnerability_params)
+    @vulnerability = Vulnerability.new(vulnerability_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @vulnerability.save
@@ -74,6 +74,6 @@ class VulnerabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vulnerability_params
-      params.require(:vulnerability).permit(:active)
+      params.require(:vulnerability).permit(:active, :category_id, inputs_attributes: [:additional_data])
     end
 end
