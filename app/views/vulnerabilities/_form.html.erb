@@ -1,22 +1,23 @@
-<%= form_with(model: vulnerability, local: true) do |form| %>
-  <% if vulnerability.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vulnerability.errors.count, "error") %> prohibited this vulnerability from being saved:</h2>
+<%= simple_form_for @vulnerability do |f| %>
+<% if vulnerability.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(vulnerability.errors.count, "error") %> prohibited this vulnerability from being saved:</h2>
 
-      <ul>
-      <% vulnerability.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <ul>
+    <% vulnerability.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <%= f.input :active %>
+  <h3> Inputs </h3>
+  <h3> Categorias </h3>
+  <%= f.association :category, prompt: "Choose a Category" %>
+
+  <%= f.simple_fields_for :inputs do |input| %>
+    <%= render 'input_fields', f: input %>
+    <%= link_to_add_association 'add input', f, :inputs %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
