@@ -12,12 +12,14 @@
 <% end %>
   <%= f.input :active %>
   <h3> Inputs </h3>
+  <%= f.simple_fields_for :inputs do |input| %>
+    <h2>hola</h2>
+    <%= render 'input_fields', :f => input %>
+    <%= link_to_add_association 'add input', f, :inputs %>
+  <% end %>
   <h3> Categorias </h3>
   <%= f.association :category, prompt: "Choose a Category" %>
 
-  <%= f.simple_fields_for :inputs do |input| %>
-    <%= render 'input_fields', f: input %>
-    <%= link_to_add_association 'add input', f, :inputs %>
-  <% end %>
+
   <%= f.button :submit %>
 <% end %>

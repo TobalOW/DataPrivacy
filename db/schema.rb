@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_203923) do
+ActiveRecord::Schema.define(version: 2019_04_18_160407) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_203923) do
     t.string "additional_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "vulnerability_id"
+    t.index ["vulnerability_id"], name: "index_inputs_on_vulnerability_id"
   end
 
   create_table "outputs", force: :cascade do |t|

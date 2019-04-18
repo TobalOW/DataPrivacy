@@ -20,6 +20,9 @@ class VulnerabilitiesController < ApplicationController
   # GET /vulnerabilities/new
   def new
     @vulnerability = Vulnerability.new
+    @vulnerability.inputs.build
+    @vulnerability.inputs.build
+    @vulnerability.inputs.build
   end
 
   # GET /vulnerabilities/1/edit
