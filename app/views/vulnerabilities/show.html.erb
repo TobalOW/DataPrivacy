@@ -1,9 +1,34 @@
-<p id="notice"><%= notice %></p>
 
+
+<p id="notice"><%= notice %></p>
+<h1>Vulnerability</h1>
 <p>
   <strong>Active:</strong>
   <%= @vulnerability.active %>
 </p>
-
-<%= link_to 'Edit', edit_vulnerability_path(@vulnerability) %> |
-<%= link_to 'Back', vulnerabilities_path %>
+<h4>Input data</h4>
+<ul>
+  <% @vulnerability.inputs.each do |input| %>
+    <li>
+    <%= input.datum.name %>,
+    <%= input.additional_data %>
+    </li>
+  <% end %>
+</ul>
+<h4>Output data</h4>
+<ul>
+  <% @vulnerability.outputs.each do |output| %>
+    <li>
+    <%= output.datum.name %>,
+    <%= output.additional_data %>
+    </li>
+  <% end %>
+</ul>
+<h4>Requests</h4>
+<ul>
+  <% @vulnerability.requests.each do |request| %>
+    <li>
+    <%= link_to request.host, request %>
+    </li>
+  <% end %>
+</ul>

@@ -10,5 +10,5 @@
 
 class Output < ApplicationRecord
   belongs_to :vulnerability
-  has_many :datums
+  belongs_to :datum
 end

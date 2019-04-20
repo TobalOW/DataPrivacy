@@ -20,9 +20,6 @@ class VulnerabilitiesController < ApplicationController
   # GET /vulnerabilities/new
   def new
     @vulnerability = Vulnerability.new
-    @vulnerability.inputs.build
-    @vulnerability.inputs.build
-    @vulnerability.inputs.build
   end
 
   # GET /vulnerabilities/1/edit
@@ -77,6 +74,10 @@ class VulnerabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vulnerability_params
-      params.require(:vulnerability).permit(:active, :category_id, inputs_attributes: [:additional_data])
+      params.require(:vulnerability).permit(
+        :active, :category_id,
+        inputs_attributes: [:additional_data, :datum_id],
+        outputs_attributes: [:additional_data, :datum_id],
+        requests_attributes: [:url, :verb_http, :headers, :host, :uri, :response_body, :response_headers])
     end
 end

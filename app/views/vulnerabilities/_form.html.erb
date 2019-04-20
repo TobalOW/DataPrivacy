@@ -10,16 +10,39 @@
     </ul>
   </div>
 <% end %>
+<div>
   <%= f.input :active %>
+  <div class='inputs'>
   <h3> Inputs </h3>
+  <div class='links'>
+    <%= link_to_add_association 'add input', f, :inputs, partial: 'input_fields' %>
+  </div>
   <%= f.simple_fields_for :inputs do |input| %>
-    <h2>hola</h2>
     <%= render 'input_fields', :f => input %>
-    <%= link_to_add_association 'add input', f, :inputs %>
   <% end %>
+  </div>
+  <div class='outputs'>
+  <h3> Outputs </h3>
+  <div class='links'>
+    <%= link_to_add_association 'add output', f, :outputs, partial: 'output_fields' %>
+  </div>
+  <%= f.simple_fields_for :outputs do |output| %>
+    <%= render 'output_fields', :f => output %>
+  <% end %>
+  </div>
+  <div class='requests'>
+  <h3> Request </h3>
+  <div class='links'>
+    <%= link_to_add_association 'add request', f, :requests, partial: 'request_fields' %>
+  </div>
+  <%= f.simple_fields_for :requests do |request| %>
+    <%= render 'request_fields', :f => request %>
+  <% end %>
+  </div>
   <h3> Categorias </h3>
   <%= f.association :category, prompt: "Choose a Category" %>
 
 
   <%= f.button :submit %>
+</div>
 <% end %>
