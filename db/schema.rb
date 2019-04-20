@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_160407) do
+ActiveRecord::Schema.define(version: 2019_04_20_211558) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_160407) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "vulnerability_id"
+    t.integer "datum_id"
+    t.index ["datum_id"], name: "index_inputs_on_datum_id"
     t.index ["vulnerability_id"], name: "index_inputs_on_vulnerability_id"
   end
 
@@ -38,6 +40,10 @@ ActiveRecord::Schema.define(version: 2019_04_18_160407) do
     t.string "additional_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "datum_id"
+    t.integer "vulnerability_id"
+    t.index ["datum_id"], name: "index_outputs_on_datum_id"
+    t.index ["vulnerability_id"], name: "index_outputs_on_vulnerability_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -50,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_160407) do
     t.string "response_headers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "vulnerability_id"
+    t.index ["vulnerability_id"], name: "index_requests_on_vulnerability_id"
   end
 
   create_table "users", force: :cascade do |t|
