@@ -72,3 +72,5 @@ gem 'pg', group: :production
 gem "cocoon"
 
 gem 'simple_form'
+
+gem 'jquery-rails'
